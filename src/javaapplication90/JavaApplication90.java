@@ -30,7 +30,7 @@ public class JavaApplication90 {
         System.out.println("Following is Breadth First Traversal "+ 
                            "(starting from vertex 0)"); 
   
-        g.DFS(0); 
+        g.DFSRecursive(0); 
     }
 }
 class Graph {
@@ -86,6 +86,24 @@ class Graph {
                     visited[n]=true;
                     q.add(n);
                 }
+            }
+        }
+    }
+    void DFSRecursive(int s)
+    {
+        boolean[] visited=new boolean[v];
+        DFSR(s,visited);
+    }
+    void DFSR(int s,boolean[] visited)
+    {
+        visited[s]=true;
+        System.out.print(s+" ");
+        for(int i=0;i<adj[s].size();i++)
+        {
+            if(!visited[adj[s].get(i)])
+            {
+                DFSR(adj[s].get(i),visited);
+                
             }
         }
     }
