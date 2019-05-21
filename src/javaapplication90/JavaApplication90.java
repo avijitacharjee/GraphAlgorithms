@@ -94,6 +94,7 @@ class Graph {
         boolean[] visited= new boolean[v];
         Stack<Integer> stack= new Stack<>();
         stack.push(s);
+        visited[s]=true;
         System.out.print(s+" ");
         while(!stack.isEmpty())
         {
@@ -104,6 +105,7 @@ class Graph {
                 if(!visited[adj[s].get(i)])
                 {
                     hasWay=true;
+                    visited[adj[s].get(i)]=true;
                     stack.push(adj[s].get(i));
                     System.out.print(adj[s].get(i)+" ");
                     break;
